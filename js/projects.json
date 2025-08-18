@@ -1,0 +1,29 @@
+[
+  {
+    "id": "student-churn-predictor",
+    "title": "Student Churn Predictor",
+    "tagline": "Churn Prediction using Machine Learning",
+    "description": "A machine learning project to predict student churn (dropout) based on academic, demographic, and engagement data. The Student Churn Predictor leverages data science and machine learning to forecast which students are likely to discontinue their studies. By analyzing multiple factors, the model provides actionable insights for retention strategies.",
+    "tags": ["Streamlit", "Python", "Pandas", "NumPy", "Sci-kit Learn", "Matplotlib"],
+    "hero_image": "assets/images/Student_Churn_Predictor.png",
+    "streamlit_url": "https://student-churn-predictor.streamlit.app"
+  },
+  {
+    "id": "store-shelf-product-detector",
+    "title": "Store Shelf Product Detector",
+    "tagline": "Product Detection using Computer Vision",
+    "description": "Detecting and Identifying Products in Store Shelfs using Deep Learning and Vector Database. This project leverages a custom-trained model (improved version of YOLO) for object detection, USEARCH for vector database, and ResNet/CLIP/DinoV2 for image similarity and retrieval, providing an interactive Streamlit web interface for users.",
+    "tags": ["Streamlit", "Python", "Torch", "NumPy", "Usearch"],
+    "hero_image": "assets/images/Store_Shelf_Product_Detector.png",
+    "streamlit_url": "https://store-shelf-object-detector.streamlit.app"
+  },
+  {
+    "id": "restaurant-order-predictor",
+    "title": "Restaurant Order Predictor",
+    "tagline": "Order Prediction using Machine Learning",
+    "description": "A machine learning project to predict restaurant order patterns based on historical sales, weather, and contextual data. The Restaurant Order Predictor leverages data science and machine learning to forecast restaurant orders. By analyzing multiple factors, the model provides actionable insights to support demand planning and enhance customer satisfaction.",
+    "tags": ["Streamlit", "Python", "Pandas", "Joblib"],
+    "hero_image": "assets/images/Restaurant_Order_Predictor.png",
+    "streamlit_url": "https://restaurant-order-predictor.streamlit.app"
+  }
+]
