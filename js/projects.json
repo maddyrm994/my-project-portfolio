@@ -25,5 +25,14 @@
     "tags": ["Streamlit", "Python", "Pandas", "Joblib"],
     "hero_image": "assets/images/Restaurant_Order_Predictor.png",
     "streamlit_url": "https://restaurant-order-predictor.streamlit.app"
+  },
+  {
+    "id": "maddys-chatbot",
+    "title": "Maddy's Chatbot",
+    "tagline": "AI Chatbot using Natural Language Processing",
+    "description": "A simple chatbot for friendly chat purposes. This chatbot can answer any question asked in any language using natural language processing (NLP) and other AI techniques to understand user input and generate appropriate responses.",
+    "tags": ["Streamlit", "Python"],
+    "hero_image": "assets/images/Maddys_Chatbot.png",
+    "streamlit_url": "https://maddys-chatbot.streamlit.app"
   }
 ]
