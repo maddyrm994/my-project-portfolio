@@ -34,5 +34,14 @@
     "tags": ["Streamlit", "Python"],
     "hero_image": "assets/images/Maddys_Chatbot.png",
     "streamlit_url": "https://maddys-chatbot.streamlit.app"
+  },
+  {
+    "id": "indian-stock-market-expert",
+    "title": "Indian Stock Market Expert",
+    "tagline": "Stock Market Information App",
+    "description": "An expert app which shows live stock market information, predicts potential upward trend in stock prices, analyzes particular stocks if asked.",
+    "tags": ["Streamlit", "Python", "Plotly"],
+    "hero_image": "assets/images/Indian_Stock_Market_Expert.png",
+    "streamlit_url": "https://indian-stock-market-expert.streamlit.app"
   }
 ]
