@@ -38,10 +38,19 @@
   {
     "id": "indian-stock-market-expert",
     "title": "Indian Stock Market Expert",
-    "tagline": "Stock Market Information App",
+    "tagline": "Stock Market Expert App",
     "description": "An expert app which shows live stock market information, predicts potential upward trend in stock prices, analyzes particular stocks if asked.",
     "tags": ["Streamlit", "Python", "Plotly"],
     "hero_image": "assets/images/Indian_Stock_Market_Expert.png",
     "streamlit_url": "https://indian-stock-market-expert.streamlit.app"
+  },
+  {
+    "id": "data-visualization-analyzer",
+    "title": "Data Visualization Analyzer",
+    "tagline": "Visualizer and Analyzer App",
+    "description": "A powerful app which creates visualizations for the uploaded dataset, and then provides insights based on the created visualizations.",
+    "tags": ["Streamlit", "Python", "Plotly"],
+    "hero_image": "assets/images/Data_Visualization_Analyzer.png",
+    "streamlit_url": "https://data-visualization-analyzer.streamlit.app"
   }
 ]
