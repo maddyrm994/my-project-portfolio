@@ -52,5 +52,14 @@
     "tags": ["Streamlit", "Python", "Plotly"],
     "hero_image": "assets/images/Data_Visualization_Analyzer.png",
     "streamlit_url": "https://data-visualization-analyzer.streamlit.app"
+  },
+  {
+    "id": "interactive-eda-tool",
+    "title": "Interactive EDA Tool",
+    "tagline": "Exploratory Data Analysis App",
+    "description": "An app which asks for a dataset, then provides an overview, cleans the dataset, creates visualizations, and generates comprehensive reports.",
+    "tags": ["Streamlit", "Python", "Pandas", "NumPy", "Plotly", "Seaborn", "Matplotlib"],
+    "hero_image": "assets/images/Interactive_EDA_Tool.png",
+    "streamlit_url": "https://interactive-eda-tool.streamlit.app"
   }
 ]
