@@ -9,21 +9,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header class="main-header">
-        <h1>My Project Portfolio</h1>
-        <p>A collection of my projects, built with a passion for data science.</p>
+        <div class="logo">
+            <a href="#">M</a>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+        </nav>
+        <a href="#" class="cta-button">Contact</a>
     </header>
 
     <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Michael User Interface Designer</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan.</p>
+                <a href="#" class="cta-button">LET'S TALK &rarr;</a>
+            </div>
+            <div class="hero-image">
+                <img src="pp3.png" alt="Michael">
+            </div>
+        </section>
+
         <section id="project-grid" class="project-grid-container">
             <!-- Project cards will be dynamically inserted here by JavaScript -->
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2025 Madhavan R Mohan</p>
+        <div class="footer-content">
+            <h2>Let's Talk with Me!</h2>
+            <p>I am always open to discuss your project, improve your online presence or help with your UI/UX deesign</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+                <a href="#"><i class="fab fa-medium-m"></i></a>
+            </div>
+        </div>
+        <p class="copyright">&copy; Created by Zarror | All Reserved!</p>
     </footer>
 
     <!-- GSAP Animation Library -->
