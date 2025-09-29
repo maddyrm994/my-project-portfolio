@@ -1,10 +1,10 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --background-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #0071e3; /* Apple Blue */
-    --card-background: #1d1d1f;
-    --border-color: #424242;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #0000ff; /* Blue */
+    --card-background: #f0f0f0;
+    --border-color: #dddddd;
 }
 
 * {
@@ -18,7 +18,7 @@ body {
     background-color: var(--background-color);
     background-image: radial-gradient(
         ellipse at top, 
-        rgba(0, 113, 227, 0.15), /* A faint glow using your primary color */
+        rgba(0, 0, 255, 0.1), /* A faint blue glow */
         var(--background-color) 40%
     );
 
@@ -41,7 +41,7 @@ body::before {
     height: 800px;
     background-image: radial-gradient(
         circle closest-side,
-        rgba(0, 113, 227, 0.12),
+        rgba(0, 0, 255, 0.12),
         transparent
     );
     z-index: -1; /* Place it behind all other content */
@@ -64,7 +64,7 @@ body::before {
 
 .main-header p {
     font-size: 1.2rem;
-    color: #a0a0a0;
+    color: #333333;
 }
 
 .project-grid-container {
@@ -99,8 +99,8 @@ a.project-card-link {
 
 .project-card:hover {
     transform: translateY(-10px) scale(1.03) rotateX(5deg);
-    box-shadow: 0 0 30px rgba(0, 113, 227, 0.6),
-                0 0 50px rgba(0, 113, 227, 0.4);
+    box-shadow: 0 0 30px rgba(0, 0, 255, 0.6),
+                0 0 50px rgba(255, 0, 0, 0.4);
 }
 
 .project-card::after {
@@ -119,18 +119,19 @@ a.project-card-link {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+    color: #000000;
 }
 
 .card-content p {
     font-size: 1rem;
-    color: #b0b0b0;
+    color: #333333;
 }
 
 .main-footer {
     text-align: center;
     padding: 2rem;
     margin-top: 4rem;
-    color: #a0a0a0;
+    color: #333333;
 }
 
 /* --- Project Detail Page Styles --- */
@@ -160,13 +161,13 @@ a.project-card-link {
     text-align: center;
     padding: 2rem;
     position: relative;
-    color: #fff;
+    color: #000000;
 }
 .project-hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 18px;
 }
 .project-hero * {
@@ -216,14 +217,14 @@ a.project-card-link {
 }
 
 .cta-button:hover {
-    background-color: #0077ed;
+    background-color: #ff0000; /* Red */
 }
 
 /* --- Ripple Effect --- */
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6); /* A semi-transparent white works well */
+    background-color: rgba(0, 0, 0, 0.6); /* A semi-transparent black works well for light theme */
     
     /* Start as a tiny dot, invisible */
     transform: scale(0);
