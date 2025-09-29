@@ -1,10 +1,10 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --primary-color: #0000ff; /* Blue */
-    --card-background: #f0f0f0;
-    --border-color: #dddddd;
+    --background-color: #1a202c;
+    --text-color: #ffffff;
+    --primary-color: #f6ad55; /* Orange/Peach */
+    --card-background: linear-gradient(135deg, #f6ad55, #e53e3e);
+    --border-color: #2d3748;
 }
 
 * {
@@ -18,8 +18,8 @@ body {
     background-color: var(--background-color);
     background-image: radial-gradient(
         ellipse at top, 
-        rgba(0, 0, 255, 0.1), /* A faint blue glow */
-        var(--background-color) 40%
+        rgba(230, 62, 62, 0.15),
+        var(--background-color) 50%
     );
 
     color: var(--text-color);
@@ -41,11 +41,79 @@ body::before {
     height: 800px;
     background-image: radial-gradient(
         circle closest-side,
-        rgba(0, 0, 255, 0.12),
+        rgba(246, 173, 85, 0.12),
         transparent
     );
     z-index: -1; /* Place it behind all other content */
     transition: top 0.2s ease-out, left 0.2s ease-out; /* Add a slight delay for smoothness */
+}
+
+/* --- Header Styles --- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-decoration: none;
+    background-color: #2d3748;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+}
+
+.main-header nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.main-header .cta-button {
+    background-color: var(--primary-color);
+    color: #1a202c;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: #a0aec0;
+    margin-bottom: 2rem;
+}
+
+.hero-image img {
+    max-width: 400px;
+    border-radius: 50%;
 }
 
 /* --- Homepage Styles --- */
@@ -64,7 +132,7 @@ body::before {
 
 .main-header p {
     font-size: 1.2rem;
-    color: #333333;
+    color: #a0aec0;
 }
 
 .project-grid-container {
@@ -83,15 +151,15 @@ a.project-card-link {
 }
 
 .project-card {
-    background-size: cover;
-    background-position: center;
+    background: var(--card-background);
     border-radius: 18px;
     overflow: hidden;
     height: 400px;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     padding: 1.5rem;
     border: 1px solid var(--border-color);
     transition: transform 0.4s ease-out, box-shadow 0.4s ease;
@@ -99,39 +167,66 @@ a.project-card-link {
 
 .project-card:hover {
     transform: translateY(-10px) scale(1.03) rotateX(5deg);
-    box-shadow: 0 0 30px rgba(0, 0, 255, 0.6),
-                0 0 50px rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 30px rgba(246, 173, 85, 0.6),
+                0 0 50px rgba(229, 62, 62, 0.4);
 }
 
 .project-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0) 60%);
+    content: none;
 }
 
 .card-content {
     position: relative;
     z-index: 2;
+    text-align: center;
 }
 
 .card-content h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     color: #ffffff;
 }
 
 .card-content p {
     font-size: 1rem;
-    color: #f0f0f0;
+    color: #f7fafc;
 }
 
 .main-footer {
     text-align: center;
-    padding: 2rem;
+    padding: 4rem 2rem 2rem;
     margin-top: 4rem;
-    color: #333333;
+    color: #a0aec0;
+}
+
+.footer-content h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.footer-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
 /* --- Project Detail Page Styles --- */
@@ -161,13 +256,13 @@ a.project-card-link {
     text-align: center;
     padding: 2rem;
     position: relative;
-    color: #000000;
+    color: #ffffff;
 }
 .project-hero::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(26, 32, 44, 0.7);
     border-radius: 18px;
 }
 .project-hero * {
@@ -181,7 +276,7 @@ a.project-card-link {
 }
 
 .project-info {
-    background-color: var(--card-background);
+    background-color: #2d3748;
     padding: 2.5rem;
     border-radius: 18px;
     margin-top: 2rem;
@@ -208,7 +303,7 @@ a.project-card-link {
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: #fff;
+    color: #1a202c;
     padding: 1rem 2rem;
     border-radius: 30px;
     text-decoration: none;
@@ -217,14 +312,14 @@ a.project-card-link {
 }
 
 .cta-button:hover {
-    background-color: #ff0000; /* Red */
+    background-color: #e53e3e; /* Red */
 }
 
 /* --- Ripple Effect --- */
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.6); /* A semi-transparent black works well for light theme */
+    background-color: rgba(255, 255, 255, 0.6);
     
     /* Start as a tiny dot, invisible */
     transform: scale(0);
@@ -237,6 +332,6 @@ a.project-card-link {
 
 /* We will add this class with JS to trigger the animation */
 .ripple.active {
-    transform: scale(2); /* Scale it large enough to cover the whole card */
-    opacity: 0; /* Fade it out as it expands */
+    transform: scale(2);
+    opacity: 0;
 }
