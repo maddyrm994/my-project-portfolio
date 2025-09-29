@@ -119,12 +119,12 @@ a.project-card-link {
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
-    color: #000000;
+    color: #ffffff;
 }
 
 .card-content p {
     font-size: 1rem;
-    color: #333333;
+    color: #f0f0f0;
 }
 
 .main-footer {
