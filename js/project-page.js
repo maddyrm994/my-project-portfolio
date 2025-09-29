@@ -30,11 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="link-out">
                             <a href="${project.streamlit_url}" target="_blank" class="cta-button">
-                                View Live App &rarr;
+                                <span>View Live App &rarr;</span>
                             </a>
                         </div>
                     </section>
                 `;
+                // Initialize the magnetic button effect
+                setupMagneticButtons();
             } else {
                 contentDiv.innerHTML = '<h1>Project not found.</h1>';
             }

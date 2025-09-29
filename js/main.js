@@ -41,22 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupAnimations() {
     gsap.registerPlugin(ScrollTrigger);
     
-    // Select all the project cards you've just created
-    const projectCards = document.querySelectorAll('.project-card');
-
-    projectCards.forEach(card => {
-        // Animate 'from' these values
-        gsap.from(card, { 
-            opacity: 0,
-            y: 50, // Start 50px below its final position
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: card,
-                start: "top 90%", // Start animation when the top of the card is 90% from the top of the viewport
-                toggleActions: "play none none none", // Play the animation once when it enters
-            }
-        });
+    // Animate from these values
+    gsap.from(".project-card", { 
+        opacity: 0,
+        y: 30, // Start 30px below its final position
+        rotationX: -10, // A little bit of 3D rotation
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1, // Add a small delay between each card
+        scrollTrigger: {
+            trigger: ".project-grid-container",
+            start: "top 80%", // Start a bit earlier
+            toggleActions: "play none none none",
+        }
     });
 }
 

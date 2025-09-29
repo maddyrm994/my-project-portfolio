@@ -61,5 +61,14 @@
     "tags": ["Streamlit", "Python", "Pandas", "NumPy", "Plotly", "Seaborn", "Matplotlib"],
     "hero_image": "assets/images/Interactive_EDA_Tool.png",
     "streamlit_url": "https://interactive-eda-tool.streamlit.app"
+  },
+    {
+    "id": "weather-report-generator",
+    "title": "Weather Report Generator",
+    "tagline": "Weather Conditions Reporting and Summarising App",
+    "description": "An app which asks for a city name, then provides current weather conditions, and generates a short summary report.",
+    "tags": ["Streamlit", "Python"],
+    "hero_image": "assets/images/Weather_Report_Generator.png",
+    "streamlit_url": "https://ai-weather-report-generator.streamlit.app"
   }
 ]
