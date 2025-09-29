@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     projectLink.classList.add('project-card-link');
                     
                     projectLink.innerHTML = `
-                        <div class="project-card" style="background-image: url('${project.hero_image}')">
+                        <div class="project-card">
                             <div class="card-content">
                                 <h3>${project.title}</h3>
                                 <p>${project.tagline}</p>
