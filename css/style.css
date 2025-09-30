@@ -1,10 +1,9 @@
-/* --- Global Styles & Variables --- */
 :root {
-    --background-color: #ffffff;
-    --text-color: #000000;
-    --primary-color: #0000ff; /* Blue */
-    --card-background: #f0f0f0;
-    --border-color: #dddddd;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #0071e3;
+    --card-background: #1d1d1f;
+    --border-color: #424242;
 }
 
 * {
@@ -14,195 +13,55 @@
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
-    background-image: radial-gradient(
-        ellipse at top, 
-        rgba(0, 0, 255, 0.1), /* A faint blue glow */
-        var(--background-color) 40%
-    );
-
     color: var(--text-color);
     line-height: 1.6;
-    position: relative;
-    overflow-x: hidden;
 }
 
-body::before {
-    content: '';
-    position: fixed; /* Stays in place during scroll */
-    /* Position the glow based on our JS-updated variables */
-    top: var(--mouse-y, 50%); 
-    left: var(--mouse-x, 50%);
-    /* Use a transform to center the gradient on the cursor */
-    transform: translate(-50%, -50%); 
-
-    width: 800px;
-    height: 800px;
-    background-image: radial-gradient(
-        circle closest-side,
-        rgba(0, 0, 255, 0.12),
-        transparent
-    );
-    z-index: -1; /* Place it behind all other content */
-    transition: top 0.2s ease-out, left 0.2s ease-out; /* Add a slight delay for smoothness */
-}
-
-/* --- Homepage Styles --- */
 .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
     text-align: center;
-    padding: 4rem 1rem;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
-.main-header h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
-
-.main-header p {
-    font-size: 1.2rem;
-    color: #333333;
-}
-
-.project-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    perspective: 1000px;
-}
-
-a.project-card-link {
+.main-header nav a {
+    margin: 0 1.5rem;
     text-decoration: none;
-    color: inherit;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.project-card {
-    background-size: cover;
-    background-position: center;
-    border-radius: 18px;
-    overflow: hidden;
-    height: 400px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
-    border: 1px solid var(--border-color);
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-10px) scale(1.03) rotateX(5deg);
-    box-shadow: 0 0 30px rgba(0, 0, 255, 0.6),
-                0 0 50px rgba(255, 0, 0, 0.4);
-}
-
-.project-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 10%, rgba(0,0,0,0) 60%);
-}
-
-.card-content {
-    position: relative;
-    z-index: 2;
-}
-
-.card-content h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    color: #000000;
-}
-
-.card-content p {
-    font-size: 1rem;
-    color: #333333;
-}
-
-.main-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-    color: #333333;
-}
-
-/* --- Project Detail Page Styles --- */
-.project-detail-container {
-    max-width: 900px;
-    margin: 4rem auto;
-    padding: 1rem;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
+.main-header nav a:hover {
     color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 700;
 }
 
-.project-hero {
-    height: 450px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 18px;
+.hero-section {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
-    position: relative;
-    color: #000000;
-}
-.project-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 18px;
-}
-.project-hero * {
-    position: relative;
-    z-index: 2;
 }
 
-.project-hero h1 {
-    font-size: 3rem;
+.hero-text h1 {
+    font-size: 4rem;
     font-weight: 900;
-}
-
-.project-info {
-    background-color: var(--card-background);
-    padding: 2.5rem;
-    border-radius: 18px;
-    margin-top: 2rem;
-    border: 1px solid var(--border-color);
-}
-
-.project-info h3 {
-    font-size: 1.5rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
 }
 
-.project-info p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.link-out {
-    margin-top: 2rem;
-    text-align: center;
+.hero-text .subtitle {
+    font-size: 1.5rem;
+    color: #a0a0a0;
+    margin-bottom: 2rem;
 }
 
 .cta-button {
@@ -217,26 +76,122 @@ a.project-card-link {
 }
 
 .cta-button:hover {
-    background-color: #ff0000; /* Red */
+    background-color: #005bb5;
 }
 
-/* --- Ripple Effect --- */
-.ripple {
+.content-section {
+    max-width: 1200px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+.content-section h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-card {
+    background-color: transparent;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.skill-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover .skill-card-inner {
+    transform: rotateY(180deg);
+}
+
+.skill-card-front,
+.skill-card-back {
     position: absolute;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.6); /* A semi-transparent black works well for light theme */
-    
-    /* Start as a tiny dot, invisible */
-    transform: scale(0);
-    opacity: 1;
-
-    /* This is the animation! */
-    /* It will smoothly transition from scale(0) to scale(1) over 0.6 seconds */
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
 }
 
-/* We will add this class with JS to trigger the animation */
-.ripple.active {
-    transform: scale(2); /* Scale it large enough to cover the whole card */
-    opacity: 0; /* Fade it out as it expands */
+.skill-card-front {
+    background-color: var(--card-background);
+}
+
+.skill-card-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.project-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: 18px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-card .tags {
+    margin-bottom: 1.5rem;
+}
+
+.project-card .tags span {
+    background-color: var(--border-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.contact-links {
+    text-align: center;
+}
+
+.contact-link {
+    display: inline-block;
+    margin: 0 1.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--primary-color);
+}
+
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    color: #a0a0a0;
 }
