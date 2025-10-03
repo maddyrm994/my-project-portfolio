@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = [...document.querySelectorAll('.main-content > section, .categories-container > section')];
-    const navLinks = document.querySelectorAll('.nav-link');
 
     let currentSection = 0;
     let isAnimating = false;
@@ -16,22 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power3.inOut',
                 onComplete: () => {
                     isAnimating = false;
-                    updateActiveNav();
                 }
             });
         }
     }
 
-    function updateActiveNav() {
-        const currentSectionElement = sections[currentSection];
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSectionElement.id}`) {
-                link.classList.add('active');
-            }
-        });
-    }
-
+    // Scroll hijacking logic
     document.body.addEventListener('wheel', function(e) {
         if (isAnimating) {
             e.preventDefault();
@@ -44,14 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }, { passive: false });
 
-    navLinks.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const sectionIndex = link.getAttribute('href') === '#hero' ? 0 : index;
-            scrollToSection(sectionIndex);
-        });
-    });
-
+    // Load projects
     const projectGrid = document.getElementById('project-grid');
     if (projectGrid) {
         fetch('js/projects.json')
@@ -74,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
+    // Initial setup
+    // Make sure to include the GSAP ScrollToPlugin
     gsap.registerPlugin(ScrollToPlugin);
-    updateActiveNav();
 });
