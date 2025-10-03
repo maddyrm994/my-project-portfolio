@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Madhavan RM</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,8 +114,13 @@
 
             <section id="projects" class="content-section">
                 <h2>Projects</h2>
-                <div id="project-grid" class="project-grid-container">
-                    <!-- Project cards will be dynamically inserted here by JavaScript -->
+                <div class="swiper">
+                    <div class="swiper-wrapper" id="project-swiper-wrapper">
+                        <!-- Project cards will be dynamically inserted here by JavaScript -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </section>
 
@@ -128,7 +134,7 @@
             </section>
 
             <footer class="main-footer">
-                <p>&copy; 2025 Madhavan R Mohan</p>
+                <p>&copy; Madhavan R Mohan | All Rights Reserved</p>
             </footer>
         </div>
     </main>
@@ -137,6 +143,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
