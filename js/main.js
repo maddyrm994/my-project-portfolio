@@ -4,36 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSection = 0;
     let isAnimating = false;
 
-    // function scrollToSection(index) {
-    //     if (index >= 0 && index < sections.length && !isAnimating) {
-    //         isAnimating = true;
-    //         currentSection = index;
-
-    //         gsap.to(window, {
-    //             scrollTo: { y: sections[index], autoKill: false },
-    //             duration: 1,
-    //             ease: 'power3.inOut',
-    //             onComplete: () => {
-    //                 isAnimating = false;
-    //             }
-    //         });
-    //     }
-    // }
-
-    // // Scroll hijacking logic
-    // document.body.addEventListener('wheel', function(e) {
-    //     if (isAnimating) {
-    //         e.preventDefault();
-    //         return;
-    //     }
-
-    //     e.preventDefault();
-    //     const direction = e.deltaY > 0 ? 1 : -1;
-    //     scrollToSection(currentSection + direction);
-
-    // }, { passive: false });
-
-    // Load projects
     const projectGrid = document.getElementById('project-grid');
     if (projectGrid) {
         fetch('js/projects.json')
