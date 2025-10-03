@@ -8,97 +8,114 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <div class="portfolio-container">
+        <main class="main-content">
+            <header class="main-header">
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </header>
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="hero-text">
-                <h1>Hi, I'm Madhavan RM</h1>
-                <p class="subtitle"><span id="typing-text"></span></p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-            </div>
-        </section>
+            <section id="hero" class="hero-section">
+                <div class="hero-text">
+                    <h1>Hi, I'm Madhavan RM</h1>
+                    <p class="subtitle"><span id="typing-text"></span></p>
+                    <a href="#contact" class="cta-button">Get In Touch</a>
+                </div>
+            </section>
 
-        <section id="about" class="content-section">
-            <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </section>
+            <section id="about" class="content-section">
+                <h2>About Me</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </section>
 
-        <section id="skills" class="content-section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <h3>Frontend</h3>
+            <section id="skills" class="content-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <h3>Frontend</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p> VueJS, Bootstrap, HTML, JavaScript</p>
+                            </div>
                         </div>
-                        <div class="skill-card-back">
-                            <p> VueJS, Bootstrap, HTML, JavaScript</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <h3>Backend</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Python</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <h3>Data Science & Analytics</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card-inner">
+                            <div class="skill-card-front">
+                                <h3>Platforms & Tools</h3>
+                            </div>
+                            <div class="skill-card-back">
+                                <p>Jupyter, Kaggle, Streamlit, MS Office, Github</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <h3>Backend</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <p>Python</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <h3>Data Science & Analytics</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <p>Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <h3>Platforms & Tools</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <p>Jupyter, Kaggle, Streamlit, MS Office, Github</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects" class="content-section">
-            <h2>Projects</h2>
-            <div id="project-grid" class="project-grid-container">
-                <!-- Project cards will be dynamically inserted here by JavaScript -->
-            </div>
-        </section>
+            <section id="projects" class="content-section">
+                <h2>Projects</h2>
+                <div id="project-grid" class="project-grid-container">
+                    <!-- Project cards will be dynamically inserted here by JavaScript -->
+                </div>
+            </section>
 
-        <section id="contact" class="content-section">
-            <h2>Get In Touch</h2>
-            <div class="contact-links">
-                <a href="mailto:mock@email.com" class="contact-link">Email</a>
-                <a href="https://github.com/mock" target="_blank" class="contact-link">Github</a>
-                <a href="https://linkedin.com/in/mock" target="_blank" class="contact-link">LinkedIn</a>
-            </div>
-        </section>
-    </main>
+            <section id="contact" class="content-section">
+                <h2>Get In Touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:mock@email.com" class="contact-link">Email</a>
+                    <a href="https://github.com/mock" target="_blank" class="contact-link">Github</a>
+                    <a href="https://linkedin.com/in/mock" target="_blank" class="contact-link">LinkedIn</a>
+                </div>
+            </section>
 
-    <footer class="main-footer">
-        <p>&copy; 2025 Madhavan R Mohan</p>
-    </footer>
+            <footer class="main-footer">
+                <p>&copy; 2025 Madhavan R Mohan</p>
+            </footer>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="sidebar-content">
+                <img src="Photograph.jpg" alt="Madhavan RM" class="profile-pic">
+                <h3>Madhavan RM</h3>
+                <p>AI & Data Science Enthusiast</p>
+                <div class="social-links">
+                    <a href="https://github.com/mock" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/mock" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:mock@email.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <a href="#" class="cta-button">Download Resume</a>
+            </div>
+        </aside>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
