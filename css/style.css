@@ -1,3 +1,4 @@
+
 :root {
     --background-color: #f8f8f8;
     --text-color: #333333;
@@ -17,7 +18,6 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    overflow: hidden;
 }
 
 .sidebar-nav {
@@ -63,7 +63,6 @@ body {
 .main-content {
     margin-left: 100px;
     position: relative;
-    height: 100vh;
 }
 
 .hero-section {
@@ -73,17 +72,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: absolute;
-    width: 100%;
-    top: 0;
 }
 
 .categories-container {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    top: 100vh;
-    overflow-y: auto;
     padding: 2rem;
 }
 
@@ -119,8 +111,12 @@ body {
 
 .content-section {
     max-width: 1200px;
-    margin: 6rem auto;
+    margin: 0 auto;
     padding: 0 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .content-section h2 {
