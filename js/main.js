@@ -9,14 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Typing animation
-    new Typed('#typing-text', {
-        strings: ['AI & Data Science Enthusiast'],
-        typeSpeed: 100,
-        backSpeed: 25,
-        loop: true
-    });
-
     // Load projects
     const projectGrid = document.getElementById('project-grid');
     if (projectGrid) {
