@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     projectCard.innerHTML = `
                         <h3>${project.title}</h3>
                         <p>${project.tagline}</p>
-                        <div class="tags">${tags}</div>
+                        <br>
                         <a href="${project.streamlit_url}" target="_blank" class="cta-button">View Live App</a>
                     `;
 
