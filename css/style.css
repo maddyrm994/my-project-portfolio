@@ -1,3 +1,4 @@
+
 :root {
     --background-color: #f8f8f8;
     --text-color: #333333;
@@ -34,7 +35,6 @@ body {
 
 .categories-container {
     width: 100%;
-    padding: 2rem;
 }
 
 .hero-text h1 {
@@ -68,9 +68,13 @@ body {
 }
 
 .content-section {
-    max-width: 1200px;
-    margin: 6rem auto;
-    padding: 0 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
 }
 
 .content-section h2 {
@@ -86,6 +90,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     justify-items: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .skill-card {
@@ -144,6 +150,11 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    overflow-y: auto;
+    max-height: 70vh;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
 }
 
 .project-card {
