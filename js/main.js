@@ -1,11 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+    const heroSection = document.getElementById('hero');
+    const categoriesContainer = document.querySelector('.categories-container');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    let isHomeVisible = true;
+    let isAnimating = false;
+
+    function showHome() {
+        if (!isHomeVisible && !isAnimating) {
+            isAnimating = true;
+            gsap.to(categoriesContainer, { y: '100vh', duration: 1, ease: 'power3.inOut' });
+            gsap.to(heroSection, { y: '0', duration: 1, ease: 'power3.inOut', onComplete: () => {
+                isHomeVisible = true;
+                isAnimating = false;
+                updateActiveNav();
+            } });
+        }
+    }
+
+    function showCategories(scrollTo) {
+        if (isHomeVisible && !isAnimating) {
+            isAnimating = true;
+            gsap.to(heroSection, { y: '-100vh', duration: 1, ease: 'power3.inOut' });
+            gsap.to(categoriesContainer, { y: '0', duration: 1, ease: 'power3.inOut', onComplete: () => {
+                isHomeVisible = false;
+                isAnimating = false;
+                updateActiveNav();
+                if (scrollTo) {
+                    document.querySelector(scrollTo).scrollIntoView({ behavior: 'smooth' });
+                }
+            } });
+        }
+    }
+
+    function updateActiveNav() {
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (isHomeVisible) {
+            document.querySelector('.nav-link[href="#hero"]').classList.add('active');
+        } else {
+            // This part is tricky without scroll events in the container.
+            // For now, let's activate the 'About' link as a default when categories are shown.
+            document.querySelector('.nav-link[href="#about"]').classList.add('active');
+        }
+    }
+
+    // Scroll hijacking logic
+    document.body.addEventListener('wheel', function(e) {
+        if (isAnimating) return;
+        if (e.deltaY > 0 && isHomeVisible) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            showCategories();
+        } else if (e.deltaY < 0 && !isHomeVisible && categoriesContainer.scrollTop === 0) {
+            e.preventDefault();
+            showHome();
+        }
+    }, { passive: false });
+
+    // Navigation click handling
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+
+            if (targetId === '#hero') {
+                showHome();
+            } else {
+                if (isHomeVisible) {
+                    showCategories(targetId);
+                } else {
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
     });
 
@@ -31,57 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
     }
-
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero section animation
-    gsap.from('.hero-text > *', {
-        opacity: 0,
-        y: 30,
-        duration: 1,
-        stagger: 0.3,
-        ease: 'power3.out'
-    });
-
-    // Content section animations
-    document.querySelectorAll('.content-section').forEach(section => {
-        gsap.from(section, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-            }
-        });
-    });
-
-    // Active nav link highlighting on scroll
-    const sections = document.querySelectorAll('.content-section, .hero-section');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    sections.forEach(section => {
-        ScrollTrigger.create({
-            trigger: section,
-            start: 'top center',
-            end: 'bottom center',
-            onEnter: () => {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const id = section.getAttribute('id');
-                const correspondingLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
-                }
-            },
-            onEnterBack: () => {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const id = section.getAttribute('id');
-                const correspondingLink = document.querySelector(`.nav-link[href="#${id}"]`);
-                if (correspondingLink) {
-                    correspondingLink.classList.add('active');
-                }
-            }
-        });
-    });
 });
