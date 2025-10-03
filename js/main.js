@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typing animation
     new Typed('#typing-text', {
-        strings: ['Artificial Intelligence & Data Science Enthusiast'],
+        strings: ['AI & Data Science Enthusiast'],
         typeSpeed: 50,
         backSpeed: 25,
         loop: true
