@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // --- THIS IS THE KEY CHANGE ---
                 // Set the background image of the slide itself
-                swiperSlide.style.backgroundImage = `url('${project.card_image}')`;
+                swiperSlide.style.backgroundImage = `url('${project.hero_image}')`;
 
                 const projectCard = document.createElement('div');
                 projectCard.classList.add('project-card');
