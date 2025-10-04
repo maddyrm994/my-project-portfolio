@@ -1,22 +1,33 @@
-:root {
-    --background-color: #f8f8f8;
-    --text-color: #333333;
-    --primary-color: #007aff;
-    --card-background: #ffffff;
-    --border-color: #e5e5e5;
-    --glow-color: rgba(0, 122, 255, 0.5);
-}
+/* In style.css */
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    /* FROM THIS: */
+    /* --background-color: #f8f8f8;
+    --text-color: #333333; */
+
+    /* TO THIS (Dark Theme): */
+    --background-color: #121212; /* A deep, near-black for the base */
+    --text-color: #f0f0f0;       /* A slightly off-white for better readability */
+    
+    --primary-color: #007aff;
+    --card-background: rgba(30, 30, 30, 0.75); /* Semi-transparent dark card */
+    --border-color: #444444;
+    --glow-color: rgba(0, 122, 255, 0.5);
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--background-color);
+    background-color: var(--background-color); /* Fallback color */
     color: var(--text-color);
+    
+    /* ADD these properties for the background image */
+    background-image: 
+        linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), /* Dark overlay */
+        url('https://unsplash.com/photos/gray-and-black-laptop-computer-on-surface-Im7lZjxeLhg'); /* Unsplash image URL */
+
+    background-size: cover;          /* Ensures the image covers the entire background */
+    background-position: center;     /* Centers the image */
+    background-attachment: fixed;    /* This is key: it creates a parallax effect as you scroll */
 }
 
 .main-content {
@@ -156,32 +167,54 @@ body {
     background-size: cover;
     width: 400px;
     height: 400px;
+    border-radius: 18px; /* Add border-radius here to round the image corners */
+    overflow: hidden;    /* Keep the overlay inside */
 }
 
+/* Modify the .project-card rule */
 .project-card {
-    background-color: var(--card-background);
-    border-radius: 18px;
-    padding: 2rem;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    /* FROM THIS: */
+    /* background-color: var(--card-background); 
+       padding: 2rem; 
+       border: 1px solid var(--border-color);
+       box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
+    
+    /* TO THIS: */
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.9) 20%, transparent 70%); /* Dark gradient from bottom */
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* Change justify-content to push content to the bottom */
+    justify-content: flex-end; 
     align-items: center;
     text-align: center;
+    padding: 2rem; /* Add padding back */
+    transition: all 0.3s ease;
+    
+    /* Remove properties that are now on .swiper-slide */
+    /* border-radius, border, box-shadow are no longer needed here */
 }
 
+/* Update the hover effect */
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 0 15px var(--glow-color);
+    background: linear-gradient(to top, rgba(18, 18, 18, 1) 30%, transparent 80%);
+    /* We can remove the transform and box-shadow, as the effect is now on the gradient */
+    transform: none; 
+    box-shadow: none;
 }
 
+/* Update project-card h3 to be more readable */
 .project-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem; /* Make title bigger */
     margin-bottom: 1rem;
+    color: #fff; /* Ensure text is white */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7); /* Add a text shadow for readability */
+}
+
+/* We need to re-add the cta-button styling inside the project card context */
+.project-card .cta-button {
+    margin-top: 1rem; /* Add some space above the button */
 }
 
 .project-card .tags {
