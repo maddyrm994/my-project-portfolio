@@ -1,35 +1,36 @@
-/* In style.css */
+/* In css/style.css -- REPLACE EVERYTHING WITH THIS */
 
 :root {
-    /* FROM THIS: */
-    /* --background-color: #f8f8f8;
-    --text-color: #333333; */
-
-    /* TO THIS (Dark Theme): */
-    --background-color: #121212; /* A deep, near-black for the base */
-    --text-color: #f0f0f0;       /* A slightly off-white for better readability */
-    
+    --background-color: #121212;
+    --text-color: #f0f0f0;
     --primary-color: #007aff;
-    --card-background: rgba(30, 30, 30, 0.75); /* Semi-transparent dark card */
+    /* Card background is now an RGBA for transparency */
+    --card-background: rgba(30, 30, 30, 0.75); 
     --border-color: #444444;
     --glow-color: rgba(0, 122, 255, 0.5);
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background-color); /* Fallback color */
-    color: var(--text-color);
-    
-    /* ADD these properties for the background image */
-    background-image: 
-        linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), /* Dark overlay */
-        url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Unsplash image URL */
-
-    background-size: cover;          /* Ensures the image covers the entire background */
-    background-position: center;     /* Centers the image */
-    background-attachment: fixed;    /* This is key: it creates a parallax effect as you scroll */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    
+    /* --- BACKGROUND IMAGE FIX --- */
+    background-image: 
+        linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), 
+        url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2020&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* <-- PASTE YOUR COPIED URL HERE */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/* --- Keep Hero and General Sections --- */
 .main-content {
     position: relative;
 }
@@ -43,10 +44,6 @@ body {
     text-align: center;
 }
 
-.categories-container {
-    width: 100%;
-}
-
 .hero-text h1 {
     font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
     font-weight: 900;
@@ -54,27 +51,9 @@ body {
     text-shadow: 0 0 15px var(--glow-color);
 }
 
-.hero-text .subtitle {
-    font-size: 1.5rem;
-    color: #666;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px var(--glow-color);
-}
-
-.cta-button:hover {
-    background-color: #005bb5;
-    box-shadow: 0 0 20px var(--glow-color);
+.hero-text h2 {
+    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.5rem);
+    color: #ccc;
 }
 
 .content-section {
@@ -94,7 +73,13 @@ body {
     margin-bottom: 3rem;
     text-shadow: 0 0 10px var(--glow-color);
 }
-
+#about p {
+    max-width: 70ch;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+/* ... (Keep your .skills-grid and .skill-card styles as they were, they are fine) ... */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -103,59 +88,15 @@ body {
     width: 100%;
     max-width: 1200px;
 }
+.skill-card { background-color: transparent; width: 250px; height: 250px; perspective: 1000px; }
+.skill-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+.skill-card:hover .skill-card-inner { transform: rotateY(180deg); }
+.skill-card-front, .skill-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 18px; border: 1px solid var(--border-color); transition: box-shadow 0.3s ease; }
+.skill-card-front { background-color: var(--card-background); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.skill-card-back { background-color: var(--primary-color); color: white; transform: rotateY(180deg); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-.skill-card {
-    background-color: transparent;
-    width: 250px;
-    height: 250px;
-    perspective: 1000px;
-}
 
-.skill-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.skill-card:hover .skill-card-inner {
-    transform: rotateY(180deg);
-}
-
-.skill-card-front,
-.skill-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 18px;
-    border: 1px solid var(--border-color);
-    transition: box-shadow 0.3s ease;
-}
-
-.skill-card-front {
-    background-color: var(--card-background);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.skill-card:hover .skill-card-front {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.skill-card-back {
-    background-color: var(--primary-color);
-    color: white;
-    transform: rotateY(180deg);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
+/* --- SWIPER & PROJECT CARD FIX --- */
 .swiper {
     width: 100%;
     padding-top: 50px;
@@ -167,88 +108,65 @@ body {
     background-size: cover;
     width: 400px;
     height: 400px;
-    border-radius: 18px; /* Add border-radius here to round the image corners */
-    overflow: hidden;    /* Keep the overlay inside */
+    
+    /* These styles are crucial */
+    border-radius: 18px;
+    overflow: hidden; /* Ensures the overlay stays inside */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+.swiper-slide:hover {
+    transform: scale(1.03);
 }
 
-/* Modify the .project-card rule */
+/* This is the overlay element */
 .project-card {
-    /* FROM THIS: */
-    /* background-color: var(--card-background); 
-       padding: 2rem; 
-       border: 1px solid var(--border-color);
-       box-shadow: 0 5px 15px rgba(0,0,0,0.05); */
-    
-    /* TO THIS: */
-    background: linear-gradient(to top, rgba(18, 18, 18, 0.9) 20%, transparent 70%); /* Dark gradient from bottom */
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* Change justify-content to push content to the bottom */
-    justify-content: flex-end; 
+    justify-content: flex-end; /* Pushes content to the bottom */
     align-items: center;
     text-align: center;
-    padding: 2rem; /* Add padding back */
-    transition: all 0.3s ease;
+    padding: 2rem;
     
-    /* Remove properties that are now on .swiper-slide */
-    /* border-radius, border, box-shadow are no longer needed here */
+    /* The gradient overlay for text readability */
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95) 15%, transparent 60%);
+    transition: background 0.4s ease;
 }
 
-/* Update the hover effect */
 .project-card:hover {
-    background: linear-gradient(to top, rgba(18, 18, 18, 1) 30%, transparent 80%);
-    /* We can remove the transform and box-shadow, as the effect is now on the gradient */
-    transform: none; 
-    box-shadow: none;
+     background: linear-gradient(to top, rgba(18, 18, 18, 1) 30%, transparent 70%);
 }
 
-/* Update project-card h3 to be more readable */
 .project-card h3 {
-    font-size: 1.75rem; /* Make title bigger */
+    font-size: 1.75rem;
     margin-bottom: 1rem;
     color: #fff; /* Ensure text is white */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.7); /* Add a text shadow for readability */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8); /* Critical for readability */
 }
 
-/* We need to re-add the cta-button styling inside the project card context */
-.project-card .cta-button {
-    margin-top: 1rem; /* Add some space above the button */
-}
-
-.project-card .tags {
-    margin-bottom: 1.5rem;
-}
-
-.project-card .tags span {
-    background-color: var(--border-color);
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-}
-
-.contact-links {
-    text-align: center;
-}
-
-.contact-link {
+.cta-button {
     display: inline-block;
-    margin: 0 1.5rem;
-    font-size: 1.2rem;
-    color: var(--text-color);
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 30px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--glow-color);
+    margin-bottom: 1rem; /* Space from the bottom edge */
 }
 
-.contact-link:hover {
-    color: var(--primary-color);
+.cta-button:hover {
+    background-color: #005bb5;
+    box-shadow: 0 0 20px var(--glow-color);
 }
 
-.main-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-    color: #a0a0a0;
-}
+/* --- (Keep your .contact-links and .main-footer styles) --- */
+.contact-links { text-align: center; }
+.contact-link { display: inline-block; margin: 0 1.5rem; font-size: 1.2rem; color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.contact-link:hover { color: var(--primary-color); }
+.main-footer { text-align: center; padding: 2rem; margin-top: 4rem; color: #a0a0a0; }
