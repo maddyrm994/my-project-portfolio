@@ -1,10 +1,13 @@
-<<<<<<< HEAD
+/* In css/style.css -- REPLACE EVERYTHING WITH THIS */
+
 :root {
     --background-color: #121212;
-    --text-color: #e0e0e0;
-    --primary-color: #0071e3;
-    --card-background: #1d1d1f;
-    --border-color: #424242;
+    --text-color: #f0f0f0;
+    --primary-color: #007aff;
+    /* Card background is now an RGBA for transparency */
+    --card-background: rgba(30, 30, 30, 0.75); 
+    --border-color: #444444;
+    --glow-color: rgba(0, 122, 255, 0.5);
 }
 
 * {
@@ -17,31 +20,19 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    
+    /* --- BACKGROUND IMAGE FIX --- */
+    background-image: 
+    linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)),
+    url('https://images.unsplash.com/photo-1718241905696-cb34c2c07bed?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* <-- PASTE YOUR COPIED URL HERE */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 2rem;
-    background-color: rgba(18, 18, 18, 0.8);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    text-align: center;
-}
-
-.main-header nav a {
-    margin: 0 1.5rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.main-header nav a:hover {
-    color: var(--primary-color);
+/* --- Keep Hero and General Sections --- */
+.main-content {
+    position: relative;
 }
 
 .hero-section {
@@ -54,36 +45,25 @@ body {
 }
 
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
     font-weight: 900;
     margin-bottom: 1rem;
+    text-shadow: 0 0 15px var(--glow-color);
 }
 
-.hero-text .subtitle {
-    font-size: 1.5rem;
-    color: #a0a0a0;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #005bb5;
+.hero-text h2 {
+    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.5rem);
+    color: #ccc;
 }
 
 .content-section {
-    max-width: 1200px;
-    margin: 6rem auto;
-    padding: 0 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    width: 100%;
 }
 
 .content-section h2 {
@@ -91,447 +71,102 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
+    text-shadow: 0 0 10px var(--glow-color);
 }
-
+#about p {
+    max-width: 70ch;
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+/* ... (Keep your .skills-grid and .skill-card styles as they were, they are fine) ... */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-}
-
-.skill-card {
-    background-color: transparent;
-    height: 300px;
-    perspective: 1000px;
-}
-
-.skill-card-inner {
-    position: relative;
+    justify-items: center;
     width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    max-width: 1200px;
 }
+.skill-card { background-color: transparent; width: 250px; height: 250px; perspective: 1000px; }
+.skill-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; }
+.skill-card:hover .skill-card-inner { transform: rotateY(180deg); }
+.skill-card-front, .skill-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 18px; border: 1px solid var(--border-color); transition: box-shadow 0.3s ease; }
+.skill-card-front { background-color: var(--card-background); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+.skill-card-back { background-color: var(--card-background); color: white; transform: rotateY(180deg); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-.skill-card:hover .skill-card-inner {
-    transform: rotateY(180deg);
-}
 
-.skill-card-front,
-.skill-card-back {
-    position: absolute;
+/* --- SWIPER & PROJECT CARD FIX --- */
+.swiper {
     width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 18px;
-    border: 1px solid var(--border-color);
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
-.skill-card-front {
-    background-color: var(--card-background);
-}
-
-.skill-card-back {
-    background-color: var(--primary-color);
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.project-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: var(--card-background);
-    border-radius: 18px;
-    padding: 2rem;
-    border: 1px solid var(--border-color);
-}
-
-.project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.project-card .tags {
-    margin-bottom: 1.5rem;
-}
-
-.project-card .tags span {
-    background-color: var(--border-color);
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-}
-
-.contact-links {
-    text-align: center;
-}
-
-.contact-link {
-    display: inline-block;
-    margin: 0 1.5rem;
-    font-size: 1.2rem;
-    color: var(--text-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-link:hover {
-    color: var(--primary-color);
-}
-
-.main-footer {
-    text-align: center;
-    padding: 2rem;
-    margin-top: 4rem;
-    color: #a0a0a0;
-}
-=======
-/* --- Global Styles & Variables --- */
-:root {
-    --background-color: #1a202c;
-    --text-color: #ffffff;
-    --primary-color: #f6ad55; /* Orange/Peach */
-    --card-background: linear-gradient(135deg, #f6ad55, #e53e3e);
-    --border-color: #2d3748;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: var(--background-color);
-    background-image: radial-gradient(
-        ellipse at top, 
-        rgba(230, 62, 62, 0.15),
-        var(--background-color) 50%
-    );
-
-    color: var(--text-color);
-    line-height: 1.6;
-    position: relative;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: '';
-    position: fixed; /* Stays in place during scroll */
-    /* Position the glow based on our JS-updated variables */
-    top: var(--mouse-y, 50%); 
-    left: var(--mouse-x, 50%);
-    /* Use a transform to center the gradient on the cursor */
-    transform: translate(-50%, -50%); 
-
-    width: 800px;
-    height: 800px;
-    background-image: radial-gradient(
-        circle closest-side,
-        rgba(246, 173, 85, 0.12),
-        transparent
-    );
-    z-index: -1; /* Place it behind all other content */
-    transition: top 0.2s ease-out, left 0.2s ease-out; /* Add a slight delay for smoothness */
-}
-
-/* --- Header Styles --- */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.logo a {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--primary-color);
-    text-decoration: none;
-    background-color: #2d3748;
-    padding: 0.5rem 1rem;
-    border-radius: 50%;
-}
-
-.main-header nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.main-header .cta-button {
-    background-color: var(--primary-color);
-    color: #1a202c;
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-/* --- Hero Section --- */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-
-.hero-text {
-    max-width: 600px;
-}
-
-.hero-text h1 {
-    font-size: 4.5rem;
-    font-weight: 900;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-.hero-text p {
-    font-size: 1.1rem;
-    color: #a0aec0;
-    margin-bottom: 2rem;
-}
-
-.hero-image img {
-    max-width: 400px;
-    border-radius: 50%;
-}
-
-/* --- Homepage Styles --- */
-.main-header {
-    text-align: center;
-    padding: 4rem 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.main-header h1 {
-    font-size: 4rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
-
-.main-header p {
-    font-size: 1.2rem;
-    color: #a0aec0;
-}
-
-.project-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    perspective: 1000px;
-}
-
-a.project-card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.project-card {
-    background: var(--card-background);
-    border-radius: 18px;
-    overflow: hidden;
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 400px;
     height: 400px;
-    position: relative;
+    
+    /* These styles are crucial */
+    border-radius: 18px;
+    overflow: hidden; /* Ensures the overlay stays inside */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+.swiper-slide:hover {
+    transform: scale(1.03);
+}
+
+/* This is the overlay element */
+.project-card {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; /* Pushes content to the bottom */
     align-items: center;
-    padding: 1.5rem;
-    border: 1px solid var(--border-color);
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease;
+    text-align: center;
+    padding: 2rem;
+    
+    /* The gradient overlay for text readability */
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95) 15%, transparent 60%);
+    transition: background 0.4s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-10px) scale(1.03) rotateX(5deg);
-    box-shadow: 0 0 30px rgba(246, 173, 85, 0.6),
-                0 0 50px rgba(229, 62, 62, 0.4);
+     background: linear-gradient(to top, rgba(18, 18, 18, 1) 30%, transparent 70%);
 }
 
-.project-card::after {
-    content: none;
-}
-
-.card-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-}
-
-.card-content h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #ffffff;
-}
-
-.card-content p {
-    font-size: 1rem;
-    color: #f7fafc;
-}
-
-.main-footer {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-    margin-top: 4rem;
-    color: #a0aec0;
-}
-
-.footer-content h2 {
-    font-size: 2.5rem;
-    font-weight: 900;
+.project-card h3 {
+    font-size: 1.75rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
-}
-
-.footer-content p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-}
-
-.social-links a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-}
-
-.copyright {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-}
-
-/* --- Project Detail Page Styles --- */
-.project-detail-container {
-    max-width: 900px;
-    margin: 4rem auto;
-    padding: 1rem;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.project-hero {
-    height: 450px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    color: #ffffff;
-}
-.project-hero::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(26, 32, 44, 0.7);
-    border-radius: 18px;
-}
-.project-hero * {
-    position: relative;
-    z-index: 2;
-}
-
-.project-hero h1 {
-    font-size: 3rem;
-    font-weight: 900;
-}
-
-.project-info {
-    background-color: #2d3748;
-    padding: 2.5rem;
-    border-radius: 18px;
-    margin-top: 2rem;
-    border: 1px solid var(--border-color);
-}
-
-.project-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
-}
-
-.project-info p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-.link-out {
-    margin-top: 2rem;
-    text-align: center;
+    color: #fff; /* Ensure text is white */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8); /* Critical for readability */
 }
 
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: #1a202c;
-    padding: 1rem 2rem;
+    color: #fff;
+    padding: 0.8rem 1.8rem;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--glow-color);
+    margin-bottom: 1rem; /* Space from the bottom edge */
 }
 
 .cta-button:hover {
-    background-color: #e53e3e; /* Red */
+    background-color: #005bb5;
+    box-shadow: 0 0 20px var(--glow-color);
 }
 
-/* --- Ripple Effect --- */
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
-    
-    /* Start as a tiny dot, invisible */
-    transform: scale(0);
-    opacity: 1;
-
-    /* This is the animation! */
-    /* It will smoothly transition from scale(0) to scale(1) over 0.6 seconds */
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
-}
-
-/* We will add this class with JS to trigger the animation */
-.ripple.active {
-    transform: scale(2);
-    opacity: 0;
-}
->>>>>>> 892b3882ca9a0cea6325eda08157b969411e1254
+/* --- (Keep your .contact-links and .main-footer styles) --- */
+.contact-links { text-align: center; }
+.contact-link { display: inline-block; margin: 0 1.5rem; font-size: 1.2rem; color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.contact-link:hover { color: var(--primary-color); }
+.main-footer { text-align: center; padding: 2rem; margin-top: 4rem; color: #a0a0a0; }
