@@ -36,28 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load projects
     const projectSwiperWrapper = document.getElementById('project-swiper-wrapper');
     if (projectSwiperWrapper) {
-        fetch('js/projects.json')
-            .then(response => response.json())
-            .then(projects => {
-                projects.forEach(project => {
-                    const swiperSlide = document.createElement('div');
-                    swiperSlide.classList.add('swiper-slide');
+    fetch('js/projects.json')
+        .then(response => response.json())
+        .then(projects => {
+            projects.forEach(project => {
+                const swiperSlide = document.createElement('div');
+                swiperSlide.classList.add('swiper-slide');
 
-                    const projectCard = document.createElement('div');
-                    projectCard.classList.add('project-card');
+                // --- THIS IS THE KEY CHANGE ---
+                // Set the background image of the slide itself
+                swiperSlide.style.backgroundImage = `url('${project.card_image}')`;
 
-                    const tags = project.tags.map(tag => `<span>${tag}</span>`).join('');
+                const projectCard = document.createElement('div');
+                projectCard.classList.add('project-card');
 
-                    projectCard.innerHTML = `
-                        <h3>${project.title}</h3>
-                        <p>${project.tagline}</p>
-                        <br>
-                        <a href="${project.streamlit_url}" target="_blank" class="cta-button">View Live App</a>
-                    `;
+                // We no longer need the tagline or tags in the HTML if the image does the talking
+                projectCard.innerHTML = `
+                    <h3>${project.title}</h3>
+                    <a href="${project.streamlit_url}" target="_blank" class="cta-button">View Project</a>
+                `;
 
-                    swiperSlide.appendChild(projectCard);
-                    projectSwiperWrapper.appendChild(swiperSlide);
-                });
+                swiperSlide.appendChild(projectCard);
+                projectSwiperWrapper.appendChild(swiperSlide);
+            });
 
                 // Initialize Swiper
                 const swiper = new Swiper('.swiper', {
